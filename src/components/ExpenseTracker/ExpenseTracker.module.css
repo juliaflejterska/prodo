@@ -1,0 +1,146 @@
+.main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+  width: 90%;
+}
+
+.img {
+  margin: 70px 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text {
+  color: white;
+  text-shadow: 0 1px 0 #ccc, 0 1px 0 #c9c9c9, 0 1px 0 #bbb, 0 1px 0 #b9b9b9,
+    0 1px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 1px rgba(0, 0, 0, 0.2),
+    0 1px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+}
+
+.add {
+  height: 40vh;
+  padding: 30px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.history {
+  margin: 130px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  border: 2px solid #000;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+
+.span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 2px;
+  background: #000;
+}
+.btn:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.btn:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.btn:hover {
+  color: #000;
+  background: rgb(255, 255, 255, 0.5);
+}
+.btn:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.span:before,
+.span:after {
+  position: absolute;
+  content: "";
+  background: #000;
+}
+.span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.span:hover:before {
+  width: 100%;
+}
+.span:hover:after {
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .img {
+    height: 100vh;
+  }
+}

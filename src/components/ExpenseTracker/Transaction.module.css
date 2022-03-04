@@ -1,0 +1,29 @@
+.transactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.positive,
+.negative {
+  width: 70px;
+}
+
+.positive {
+  color: #136f63;
+}
+
+.negative {
+  color: #d00000;
+}
+
+.icon {
+  margin: 5px;
+  cursor: pointer;
+}
