@@ -7,46 +7,20 @@ import Goal from "./Goal";
 
 import classes from "./GoalsTracker.module.css";
 
+const useForceUpdate = () => {
+  const [value, setValue] = useState(0);
+  return () => setValue((value) => value + 1);
+};
+
 const GoalsTracker = () => {
+  const forceUpdate = useForceUpdate();
+
   const sortCategories = [
     { value: "all", label: "all" },
     { value: "self-development", label: "self-development" },
     { value: "self-care", label: "self-care" },
     { value: "work/school", label: "work/school" },
     { value: "other", label: "other" },
-  ];
-
-  const DUMMYGOALS = [
-    {
-      id: 1,
-      text: "visit Malta",
-      category: "other",
-    },
-    {
-      id: 2,
-      text: "find job",
-      category: "work/school",
-    },
-    {
-      id: 3,
-      text: "learn programming",
-      category: "self-development",
-    },
-    {
-      id: 4,
-      text: "create morning routine",
-      category: "self-care",
-    },
-    {
-      id: 5,
-      text: "watch 10 Oscar movies",
-      category: "self-development",
-    },
-    {
-      id: 6,
-      text: "lose 3 kg",
-      category: "other",
-    },
   ];
 
   const [selectedSortCategory, setSelectedSortCategory] = useState(
@@ -64,18 +38,14 @@ const GoalsTracker = () => {
 
   let goalsFromLS;
   useEffect(() => {
-    if (!localStorage.getItem("goals")) {
-      localStorage.setItem("goals", JSON.stringify([...DUMMYGOALS]));
-    } else {
-      goalsFromLS = JSON.parse(localStorage.getItem("goals"));
-      console.log(goalsFromLS);
-    }
+    goalsFromLS = JSON.parse(localStorage.getItem("goals"));
     setGoals(goalsFromLS);
   }, []);
 
   useEffect(() => {
     if (selectedSortCategory === "all") {
       setSelectedGoals([...goals]);
+      forceUpdate();
     } else {
       const isCategory = (goal) => {
         return goal.category === selectedSortCategory;
@@ -115,11 +85,13 @@ const GoalsTracker = () => {
 
   return (
     <section>
+      <div className={classes.empty}></div>
       <div className={classes.main}>
         <div className={classes.container}>
           <img
             className={classes.img}
             src="https://images.unsplash.com/photo-1591258370814-01609b341790?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="excercising women"
           ></img>
           {!showAdd && (
             <div className={classes.text}>

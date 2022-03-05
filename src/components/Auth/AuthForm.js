@@ -91,6 +91,7 @@ const AuthForm = () => {
 
   return (
     <section>
+      <div className={classes.empty}></div>
       <div className={classes.main}>
         <div className={classes.container}>
           <img

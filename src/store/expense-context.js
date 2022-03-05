@@ -9,12 +9,14 @@ const DUMMYTRANSACTIONS = [
   { id: 6, text: "cake", amount: -40 },
 ];
 
-let fetchedTransactions;
+let fetchedTransactions = [];
 if (!localStorage.getItem("transactions")) {
   localStorage.setItem("transactions", JSON.stringify([...DUMMYTRANSACTIONS]));
+  fetchedTransactions = DUMMYTRANSACTIONS;
 } else {
   fetchedTransactions = JSON.parse(localStorage.getItem("transactions"));
 }
+console.log(fetchedTransactions);
 
 const initialState = {
   transactions: [...fetchedTransactions],

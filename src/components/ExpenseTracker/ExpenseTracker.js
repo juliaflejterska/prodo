@@ -17,11 +17,13 @@ const ExpenseTracker = () => {
   return (
     <ExpenseContextProvider>
       <section>
+        <div className={classes.empty}></div>
         <div className={classes.main}>
           <div className={classes.container}>
             <img
               className={classes.img}
               src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+              alt="woman with a laptop and a credit card"
             ></img>
             {!showAdd && (
               <div className={classes.text}>

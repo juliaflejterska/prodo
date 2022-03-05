@@ -75,6 +75,7 @@ const Navigation = () => {
           <li
             onClick={() => {
               setIsClicked((isClicked) => (isClicked = false));
+              window.location.reload();
             }}
           >
             <NavLink className={classes.link} to="/expenses">

@@ -1,9 +1,9 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ExpenseContext } from "../../store/expense-context";
 import classes from "./AddTransaction.module.css";
 
 const AddTransaction = () => {
-  const { addTransaction, transactions } = useContext(ExpenseContext);
+  const { addTransaction } = useContext(ExpenseContext);
 
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
@@ -41,7 +41,7 @@ const AddTransaction = () => {
     setText("");
 
     addTransaction(newTransaction);
-    console.log(newTransaction);
+    //window.location.reload(true);
   };
 
   return (

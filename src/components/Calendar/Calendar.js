@@ -53,19 +53,14 @@ const CalendarComp = () => {
   };
 
   let fetchedEvents;
-
-  if (!localStorage.getItem("events")) {
-    localStorage.setItem("events", JSON.stringify([]));
-  } else {
-    fetchedEvents = JSON.parse(localStorage.getItem("events"));
-    fetchedEvents.forEach((event) => {
-      for (let key in event) {
-        if (key === "start" || key === "end") {
-          event[key] = new Date(event[key]);
-        }
+  fetchedEvents = JSON.parse(localStorage.getItem("events"));
+  fetchedEvents.forEach((event) => {
+    for (let key in event) {
+      if (key === "start" || key === "end") {
+        event[key] = new Date(event[key]);
       }
-    });
-  }
+    }
+  });
 
   const setTitle = (e) => {
     if (e.target.value !== "" || e.target.value.length !== 0) {
@@ -167,12 +162,14 @@ const CalendarComp = () => {
 
   return (
     <section>
+      <div className={classes.empty}></div>
       <div>
         <div className={classes.main}>
           <div className={classes.container}>
             <img
               className={classes.img}
               src="https://images.unsplash.com/photo-1641386337567-c824f91bea87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
+              alt="calendar"
             ></img>
             {!showAdd && (
               <div className={classes.text}>
