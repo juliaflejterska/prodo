@@ -22,20 +22,11 @@ const Navigation = () => {
 
   return (
     <nav>
-      <motion.div
-        initial={{ x: -500 }}
-        animate={{ x: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 160,
-          damping: 25,
-          duration: 1,
-        }}
-      >
+      <div>
         <NavLink className={classes.logo} to="/">
           PRODO
         </NavLink>
-      </motion.div>
+      </div>
 
       <div
         className={classes.hamburger}
@@ -75,7 +66,6 @@ const Navigation = () => {
           <li
             onClick={() => {
               setIsClicked((isClicked) => (isClicked = false));
-              window.location.reload();
             }}
           >
             <NavLink className={classes.link} to="/expenses">

@@ -2,8 +2,15 @@ import { useState, useContext } from "react";
 import { ExpenseContext } from "../../store/expense-context";
 import classes from "./AddTransaction.module.css";
 
+const useForceUpdate = () => {
+  const [value, setValue] = useState(0);
+  return () => setValue((value) => value + 1);
+};
+
 const AddTransaction = () => {
-  const { addTransaction } = useContext(ExpenseContext);
+  const forceUpdate = useForceUpdate();
+
+  const { addTransaction, transactions } = useContext(ExpenseContext);
 
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
@@ -41,6 +48,9 @@ const AddTransaction = () => {
     setText("");
 
     addTransaction(newTransaction);
+    forceUpdate();
+    console.log(transactions);
+
     //window.location.reload(true);
   };
 

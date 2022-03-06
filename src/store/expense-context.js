@@ -31,6 +31,7 @@ export const ExpenseReducer = (state, action) => {
         "transactions",
         JSON.stringify([action.payload, ...state.transactions])
       );
+
       return {
         ...state,
         transactions: [action.payload, ...state.transactions],
@@ -65,6 +66,7 @@ export const ExpenseContextProvider = ({ children }) => {
       type: "ADD",
       payload: transaction,
     });
+    console.log(state);
   };
 
   const deleteTransaction = (id) => {
