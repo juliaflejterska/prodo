@@ -9,13 +9,10 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
-  //checking if token is in local storage
   const localStorageToken = localStorage.getItem("token");
 
   const [token, setToken] = useState(localStorageToken);
 
-  // if token is an empty string -> false
-  // if token isn't empty string -> true
   const isLoggedIn = !!token;
 
   const logoutHandler = () => {
@@ -27,7 +24,6 @@ export const AuthContextProvider = (props) => {
   const loginHandler = (token) => {
     setToken(token);
 
-    //saving token in local storage
     localStorage.setItem("token", token);
   };
 
