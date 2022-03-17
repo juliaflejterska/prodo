@@ -10,7 +10,6 @@ const Navigation = () => {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
-  //handling logout (setting token in auth context to "")
   const logoutHandler = () => {
     authCtx.logout();
   };

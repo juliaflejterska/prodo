@@ -40,19 +40,16 @@ const AuthForm = () => {
 
     let url;
 
-    //LOG IN
     if (isLogin) {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC6boBODsCs3FN2yZW3-0Ly1hFFtRt4uow";
     }
 
-    //SIGN IN
     if (!isLogin) {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC6boBODsCs3FN2yZW3-0Ly1hFFtRt4uow";
     }
 
-    //REQUEST CODE FOR BOTH
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -79,13 +76,13 @@ const AuthForm = () => {
           });
         }
       })
-      //SUCCESSFULLY GETTING DATA
+
       .then((data) => {
         authCtx.login(data.idToken);
 
         navigate("/", { replace: true });
       })
-      //UNSUCCESSFULLY GETTING DATA
+
       .catch((err) => alert(err.message));
   };
 

@@ -50,8 +50,6 @@ const AddTransaction = () => {
     addTransaction(newTransaction);
     forceUpdate();
     console.log(transactions);
-
-    //window.location.reload(true);
   };
 
   return (
